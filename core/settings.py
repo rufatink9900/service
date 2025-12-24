@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-n%f*9cwo8*-7f$%ephzwm)_q#y#z0a^czj2s9yim$ixb0j*q*f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["service-zrhh.onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["service-zrhh.onrender.com", "localhost", "127.0.0.1", "galaxymotors.org"]
 
 
 
@@ -82,7 +82,7 @@ DATABASES = {
     "default": dj_database_url.config(
         default="sqlite:///db.sqlite3",
         conn_max_age=600,
-        ssl_require=True
+        ssl_require=False
     )
 }
 
@@ -135,5 +135,5 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CSRF_TRUSTED_ORIGINS = [
     "https://service-zrhh.onrender.com",
-    
+    "https://galaxymotors.org/"
 ]
