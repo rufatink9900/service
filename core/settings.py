@@ -135,6 +135,7 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CSRF_TRUSTED_ORIGINS = [
     "https://service-zrhh.onrender.com",
-    "https://galaxymotors.pro/"
-    
+    "https://galaxymotors.pro",
+    "https://www.galaxymotors.pro"
 ]
+
