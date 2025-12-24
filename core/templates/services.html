@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Services | GalaxyGarage{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl tracking-widest uppercase mb-6">
+        Our Services
+    </h2>
+    <p class="text-white/70 mb-6">
+        Diagnostics • EV Repair • Software • Maintenance
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        {% for service in services %}
+            <div class="p-4 bg-gray-800 rounded shadow">
+                <h3 class="text-xl font-bold">{{ service.name }}</h3>
+                <p class="text-white/70">{{ service.description }}</p>
+                {% if service.price %}
+                    <p class="mt-2 font-semibold">${{ service.price }}</p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No services available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

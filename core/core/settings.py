@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import cloudinary
+import os
+import dj_database_url
+USE_I18N = True
+USE_L10N = True
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +29,8 @@ SECRET_KEY = 'django-insecure-n%f*9cwo8*-7f$%ephzwm)_q#y#z0a^czj2s9yim$ixb0j*q*f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["service-zrhh.onrender.com", "localhost", "127.0.0.1", "galaxymotors.pro", "www.galaxymotors.pro"]
+
 
 
 # Application definition
@@ -39,11 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "cloudinary",
     "cloudinary_storage",
+    "modeltranslation",
+    "cars"
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,10 +83,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        default="sqlite:///db.sqlite3",
+        conn_max_age=600,
+        ssl_require=False
+    )
 }
 
 
@@ -117,12 +126,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 cloudinary.config(
-    cloud_name="YOUR_CLOUD_NAME",
-    api_key="YOUR_API_KEY",
-    api_secret="YOUR_API_SECRET",
+    cloud_name="dzclcwqjg",
+    api_key="982316974158338",
+    api_secret="jdujUDDWspRfEoX-nHWPNN6arHo",
 )
 
 
 STATIC_URL = 'static/'
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://service-zrhh.onrender.com",
+    "https://galaxymotors.pro",
+    "https://www.galaxymotors.pro",
+]
+
+LANGUAGE_CODE = 'az'  # основной язык
+
+LANGUAGES = [
+    ('az', 'Azerbaijani'),
+    ('ru', 'Russian'),
+    ('en', 'English'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
