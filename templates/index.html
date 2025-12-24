@@ -1,66 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCR Service</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Preloader стили */
-        #preloader {
-            position: fixed;
-            inset: 0;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 50;
-            color: white;
-            flex-direction: column;
-        }
-        /* Простая анимация загрузки */
-        .loader {
-            border: 4px solid white;
-            border-top: 4px solid transparent;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-top: 20px;
-        }
+{% extends "base.html" %}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body class="bg-black text-white">
+{% block title %}Home | GalaxyGarage{% endblock %}
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="flex flex-col items-center justify-center border border-white px-14 py-10 text-center">
-            <h1 class="text-4xl tracking-[0.3em] mb-3">
-                GalaxyGarage SERVICE
-            </h1>
-            <p class="text-sm tracking-widest text-white/60">
-                trust • quality • speed
-            </p>
-            <div class="loader"></div>
-        </div>
-    </div>
-
-    <!-- Главная страница -->
-    <div id="mainContent" class="hidden h-screen flex items-center justify-center">
-       {% block content  %}{% endblock  %}
-    </div>
-
-    <script>
-        setTimeout(() => {
-            document.getElementById('preloader').style.display = 'none';
-            document.getElementById('mainContent').classList.remove('hidden');
-        }, 2000);
-    </script>
-
-</body>
-</html>
+{% block content %}
+<div class="flex items-center justify-center min-h-[60vh]">
+    <h2 class="text-3xl tracking-widest uppercase text-white/80">
+        
+    </h2>
+</div>
+{% endblock %}
