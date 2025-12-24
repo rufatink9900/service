@@ -82,7 +82,7 @@ DATABASES = {
     "default": dj_database_url.config(
         default="sqlite:///db.sqlite3",
         conn_max_age=600,
-        ssl_require=False
+        ssl_require=True
     )
 }
 
@@ -132,3 +132,8 @@ STATIC_URL = 'static/'
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://service-zrhh.onrender.com",
+    
+]
