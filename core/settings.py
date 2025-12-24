@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n%f*9cwo8*-7f$%ephzwm)_q#y#z0a^czj2s9yim$ixb0j*q*f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["service-zrhh.onrender.com", "localhost", "127.0.0.1"]
+
 
 
 # Application definition
@@ -125,4 +126,5 @@ cloudinary.config(
 
 STATIC_URL = 'static/'
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
 
