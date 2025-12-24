@@ -1,17 +1,19 @@
-from modeltranslation.translator import register, TranslationOptions
+from modeltranslation.translator import translator, TranslationOptions
 from .models import Category, SubCategory, Service
 
-
-@register(Category)
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ("name", "slug")
+    fields = ('name',)
+
+translator.register(Category, CategoryTranslationOptions)
 
 
-@register(SubCategory)
 class SubCategoryTranslationOptions(TranslationOptions):
-    fields = ("name", "slug")
+    fields = ('name',)
+
+translator.register(SubCategory, SubCategoryTranslationOptions)
 
 
-@register(Service)
 class ServiceTranslationOptions(TranslationOptions):
-    fields = ("title", "description")
+    fields = ('title', 'description')
+
+translator.register(Service, ServiceTranslationOptions)
